@@ -1,0 +1,83 @@
+// Conditional statements and examples
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+int main(void) {
+    
+    // comparison operators
+    int a = 5;
+    int b = 3;
+    printf("%d == %d --> %d\n", a, b, a == b);
+    printf("%d < %d  --> %d\n", a, b, a < b);
+    printf("%d <= %d --> %d\n", a, b, a <= b);
+    printf("%d > %d  --> %d\n", a, b, a > b);
+    printf("%d >= %d --> %d\n", a, b, a >= b);
+
+    // logical operators
+    bool x = true;
+    bool y = false;
+    printf("true && false = %d\n", x && y);
+    printf("true || false = %d\n", x || y);
+    printf("!true = %d\n", !x);
+
+    // if/else if/else
+    if (a > b) {
+        printf("%d is greater than %d\n", a, b);
+    } else if (a < b) {
+        printf("%d is less than %d\n", a, b);
+    } else {
+        printf("%d is equal to %d\n", a, b);
+    }
+
+    // boolean variable in condition
+    bool isOnline = true;
+    if (isOnline) {
+        printf("you are online\n");
+    } else {
+        printf("you are not online\n");
+    }
+
+    // string handling example (commented out because requires input)
+    /*
+    char name[50] = "";
+    if (fgets(name, sizeof(name), stdin)) {
+        name[strlen(name) - 1] = '\0'; // remove newline
+        if (strlen(name) == 0) {
+            printf("you did not enter a name\n");
+        } else {
+            printf("Hello %s\n", name);
+        }
+    }
+    */
+
+    // switch statement
+    int mark = 65;
+    switch (mark) {
+        case 100:
+            printf("perfect score\n");
+            break;
+        case 90:
+            printf("excellent\n");
+            break;
+        default:
+            printf("score: %d\n", mark);
+            break;
+    }
+
+    // ternary operator examples
+    int x1 = 7;
+    int y1 = 6;
+    int max = (x1 > y1) ? x1 : y1;
+    printf("max of %d and %d is %d\n", x1, y1, max);
+
+    printf("status: %s\n", isOnline ? "online" : "offline");
+
+    int number = 8;
+    printf("%d is %s\n", number, (number % 2 == 0) ? "even" : "odd");
+
+    int hours = 12, minutes = 30;
+    printf("%02d:%02d %s\n", hours, minutes, (hours < 12) ? "AM" : "PM");
+
+    return 0;
+}
