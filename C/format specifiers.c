@@ -15,7 +15,7 @@ int main(){
     printf("%lf\n", pi);
     
     //Character
-    char currency = '£';
+    char currency = '$';
     printf("%c\n", currency);
     
     //String

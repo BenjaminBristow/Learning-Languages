@@ -1,0 +1,58 @@
+#include <stdio.h>
+// ******* scanf function *******
+
+/*
+scanf(“%fs”, &variablename);
+In the quotes is the format specifier (fs) of the variable
+Then you need an & followed by the variable name you are assigning it to
+You need the & as it stores the data input at the location pointed to by the variable 
+You need to put a space before the format specifier ONLY if it is %c as a \n may still be in the input buffer. A space before tells the compiler to ignore any “\n”’s in the input buffer
+	Example: 
+	char letter = ‘E’;
+scanf(“ %c”, letter) - There is a space before the %c within the “”
+*/
+
+int main(){
+
+    //Negatives:
+    char fullName[30];
+    scanf("%s", fullName);
+    
+    //If you input “Benjamin Bristow” and then:
+    printf("%s", fullName);
+    //It returns “Benjamin “
+    //This is because scanf stops reading after it sees a bank space
+    
+    // ******** fgets function - for strings only *******
+    //“File get string” function
+    
+    int size;
+    int sizeofvariable;
+    char variablename[size];
+    fgets(variablename, sizeofvariable, stdin);
+    //stdin doesn’t change and it means standard input
+    
+    char fullName[30];
+    fgets(fullName, 30, stdin);
+    //This would now return “Benjamin Bristow”
+    
+    //But what if you want to change the size of the string later on, you would then have to go back through the code and change every instance. Instead you can calculate it with the sizeof() functions
+    
+    getchar(); //clears input buffer beforehand as fgets cannot put a space before a format specifier
+    char fullName[30];
+    fgets(fullName, sizeof(fullName), stdin);
+    
+    
+    //This still will work but a \n won’t work as its read by the string
+    #include <string.h>
+    fullName[strlen(fullName) - 1] = '\0';
+    //This goes to the end of out string using the strlen() function (string length) and adds a new newline character ‘\0’
+    //Put this after the fgets function
+    
+    getchar();
+    char fullName[30];
+    fgets(fullName, sizeof(fullName), stdin);
+    fullName[strlen(fullName) - 1] = '\0';
+    
+    //This works as intended
+}

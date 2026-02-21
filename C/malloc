@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+// ****** Malloc *******
+
+char *name = malloc(100 * sizeof(char));
+//This creates a string pointer called name and allocates 100 bytes of memory to it
+
+// do something with it
+name[0] = 'B';
+name[1] = 'e';
+name[2] = 'n';
+name[3] = '\0'; //null terminator to end the string
+
+// return the memory back to the system when you are done with it
+free(name);
+//malloc returns NULL if it fails to allocate memory, so you should always check if the pointer is NULL before using it
