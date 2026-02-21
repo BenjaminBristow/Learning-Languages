@@ -1,0 +1,12 @@
+git clone https://
+  - allows you to copy your repository down onto your device
+
+git add --all
+  - adds all the changes ready to be updated on GitHub
+
+git commit -m "add your message here"
+  - this message is for you to understand what you updated look back and see what you commited
+
+git push
+  - sends all added files tagged with the commit message to the repository and updates any changes
+
