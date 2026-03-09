@@ -1,0 +1,263 @@
+<!--
+===========================================================================
+ADVANCED BOOTSTRAP HANDBOOK
+===========================================================================
+This handbook covers Bootstrap 5, from basics to advanced components.
+- Each section includes detailed comments explaining how and why it works.
+- Includes best practices, pitfalls, and real-world usage tips.
+===========================================================================-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Handbook</title>
+
+    <!-- Bootstrap CSS -->
+    <!-- Using CDN for simplicity; ensures latest stable version -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional: Custom CSS -->
+    <style>
+        /* =========================================================================
+        Custom styles for examples
+        ========================================================================= */
+        .example-box {
+            border: 2px dashed #007BFF; /* Blue dashed box for visual clarity */
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container my-5">
+        <!-- =========================================================================
+        1. CONTAINERS
+        ========================================================================= -->
+        <div class="example-box">
+            <h2>Containers</h2>
+            <p class="text-muted">
+                Containers are the fundamental building block for layout. They control the width and alignment of content.
+            </p>
+            <div class="container bg-primary text-white p-3 mb-3">
+                Fixed-width container (responsive)
+            </div>
+            <div class="container-fluid bg-success text-white p-3">
+                Full-width container (spans entire viewport)
+            </div>
+            <!-- Explanation:
+                - container: responsive max-width based on breakpoints
+                - container-fluid: always 100% width
+                - Padding (p-3) adds spacing inside container
+                - Margin-bottom (mb-3) separates containers vertically
+            -->
+        </div>
+
+        <!-- =========================================================================
+        2. GRID SYSTEM
+        ========================================================================= -->
+        <div class="example-box">
+            <h2>Grid System</h2>
+            <p class="text-muted">Bootstrap uses a 12-column grid for responsive layouts.</p>
+
+            <div class="row mb-3">
+                <div class="col bg-warning text-center">col</div>
+                <div class="col bg-info text-center">col</div>
+                <div class="col bg-warning text-center">col</div>
+                <!-- Explanation:
+                    - row: container for columns, uses negative margin to align content
+                    - col: auto width columns
+                    - Multiple col elements share equal width
+                -->
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-6 bg-danger text-white text-center">col-6</div>
+                <div class="col-6 bg-secondary text-white text-center">col-6</div>
+                <!-- Explanation:
+                    - col-6: column spans 6/12 (50%)
+                    - Works for all breakpoints; can also use col-md-6 for medium+ screens only
+                -->
+            </div>
+        </div>
+
+        <!-- =========================================================================
+        3. TYPOGRAPHY
+        ========================================================================= -->
+        <div class="example-box">
+            <h2>Typography</h2>
+            <p class="text-muted">Bootstrap provides pre-defined classes for text and headings.</p>
+
+            <h1 class="display-1">Display 1</h1>
+            <p class="lead">Lead paragraph for emphasis.</p>
+            <p class="text-success">Success text</p>
+            <p class="text-danger">Danger text</p>
+            <p class="text-center">Centered text</p>
+            <!-- Explanation:
+                - display-1..display-6: larger headings for attention
+                - lead: larger paragraph, good for intro text
+                - text-color classes: quick semantic coloring
+                - text alignment classes: text-center, text-start, text-end
+            -->
+        </div>
+
+        <!-- =========================================================================
+        4. BUTTONS
+        ========================================================================= -->
+        <div class="example-box">
+            <h2>Buttons</h2>
+            <button class="btn btn-primary me-2">Primary</button>
+            <button class="btn btn-secondary me-2">Secondary</button>
+            <button class="btn btn-success me-2">Success</button>
+            <button class="btn btn-danger">Danger</button>
+
+            <!-- Explanation:
+                - btn: base class
+                - btn-*: predefined color styles
+                - me-2: margin-end spacing to separate buttons
+                - btn-lg, btn-sm can adjust size
+                - btn-outline-* gives outlined button style
+            -->
+        </div>
+
+        <!-- =========================================================================
+        5. NAVBAR
+        ========================================================================= -->
+        <div class="example-box">
+            <h2>Navbar</h2>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Brand</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Explanation:
+                - navbar: main navigation wrapper
+                - navbar-expand-lg: expands on large screens, collapses on smaller
+                - navbar-dark/bg-dark: dark theme
+                - navbar-toggler & collapse: makes responsive menu
+                - nav-link: styles links, active highlights current page
+            -->
+        </div>
+
+        <!-- =========================================================================
+        6. FORMS
+        ========================================================================= -->
+        <div class="example-box">
+            <h2>Forms</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <div class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <!-- Explanation:
+                - form-control: styles inputs uniformly
+                - form-label: standardizes label
+                - mb-3: spacing between inputs
+                - form-text: small helper text below input
+                - btn btn-primary: standard submit button
+                - Bootstrap forms are fully responsive and mobile-friendly
+            -->
+        </div>
+
+        <!-- =========================================================================
+        7. MODALS
+        ========================================================================= -->
+        <div class="example-box">
+            <h2>Modals</h2>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch Modal
+            </button>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Modal Title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            This is a Bootstrap modal example.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explanation:
+                - data-bs-toggle="modal" triggers modal
+                - modal fade: animation effect
+                - modal-dialog: centers content
+                - modal-content: main content wrapper
+                - modal-header/body/footer: semantic structure
+                - btn-close: standardized close button
+                - Responsive and accessible by default
+            -->
+        </div>
+
+        <!-- =========================================================================
+        8. UTILITIES
+        ========================================================================= -->
+        <div class="example-box">
+            <h2>Utilities</h2>
+            <p class="text-center text-primary">Centered primary text</p>
+            <p class="fw-bold">Bold text using utility class</p>
+            <p class="fst-italic">Italic text using utility class</p>
+            <div class="d-flex justify-content-between bg-light p-2">
+                <span>Flex start</span>
+                <span>Flex end</span>
+            </div>
+            <!-- Explanation:
+                - text-center: centers text
+                - text-primary: color utility
+                - fw-bold/fst-italic: font-weight/style utilities
+                - d-flex: flexbox container
+                - justify-content-between: distributes items across container
+                - Utilities allow rapid styling without custom CSS
+            -->
+        </div>
+
+        <!-- =========================================================================
+        9. GRID BREAKPOINTS
+        ========================================================================= -->
+        <div class="example-box">
+            <h2>Responsive Breakpoints</h2>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 bg-info text-white p-3">Responsive Column</div>
+                <div class="col-12 col-md-6 col-lg-4 bg-success text-white p-3">Responsive Column</div>
+                <div class="col-12 col-md-6 col-lg-4 bg-warning text-dark p-3">Responsive Column</div>
+            </div>
+            <!-- Explanation:
+                - col-12: full width on extra-small screens
+                - col-md-6: 50% width on medium screens
+                - col-lg-4: 33% width on large screens
+                - Bootstrap automatically adjusts layout based on viewport
+            -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (with Popper.js for dropdowns, modals, tooltips) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

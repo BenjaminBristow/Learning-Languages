@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All-in-One Frontend Handbook</title>
+
+<!--
+========================================================================
+ALL-IN-ONE FRONTEND HANDBOOK (HTML + CSS + JS)
+- This file combines HTML, CSS, and JavaScript examples
+- Every element, attribute, and common pattern is explained with comments
+========================================================================
+-->
+
+<!-- ===============================
+CSS STYLES
+================================= -->
+<style>
+/* ===============================
+1. GLOBAL STYLES
+================================= */
+body {
+    font-family: Arial, sans-serif; /* Sets default font */
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Add padding around page */
+    background-color: #f4f4f4; /* Light grey background */
+    color: #333; /* Default text color */
+    line-height: 1.6; /* Better readability */
+}
+
+/* Links styling */
+a {
+    color: #3498db; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+a:hover {
+    text-decoration: underline; /* Show underline on hover */
+}
+
+/* ===============================
+2. CONTAINER AND LAYOUT
+================================= */
+.container {
+    max-width: 900px; /* Limit width */
+    margin: 0 auto; /* Center horizontally */
+    background-color: #fff; /* White background */
+    padding: 20px; /* Inner padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Soft shadow */
+}
+
+/* ===============================
+3. HEADINGS
+================================= */
+h1 { font-size: 2em; margin-bottom: 0.5em; }
+h2 { font-size: 1.5em; margin-bottom: 0.5em; }
+h3 { font-size: 1.2em; margin-bottom: 0.5em; }
+
+/* ===============================
+4. BUTTONS
+================================= */
+button {
+    padding: 8px 15px; /* Inner spacing */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #3498db; /* Primary color */
+    color: white; /* Button text color */
+    cursor: pointer; /* Show pointer on hover */
+}
+button:hover {
+    background-color: #217dbb; /* Darker shade on hover */
+}
+
+/* ===============================
+5. FORMS
+================================= */
+input, select, textarea {
+    padding: 8px; /* Spacing inside input */
+    margin: 5px 0; /* Space around input */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* ===============================
+6. TABLES
+================================= */
+table {
+    width: 100%; /* Full width table */
+    border-collapse: collapse; /* Merge borders */
+}
+th, td {
+    padding: 10px; /* Inner cell padding */
+    border: 1px solid #ccc; /* Light gray borders */
+}
+th { background-color: #f4f4f4; }
+
+/* ===============================
+7. LISTS
+================================= */
+ul, ol {
+    margin: 10px 0; /* Spacing above/below */
+    padding-left: 20px; /* Indent bullets/numbers */
+}
+
+/* ===============================
+8. TASK LIST (DEMO FOR JS)
+================================= */
+.task-item {
+    display: flex; /* Flex layout for checkbox + text + buttons */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+.task-item.completed {
+    text-decoration: line-through; /* Strike-through completed task */
+    color: grey;
+}
+.task-buttons button {
+    margin-left: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ===============================
+HTML SECTION EXAMPLES
+================================= -->
+
+<h1>HTML Examples</h1>
+
+<!-- Paragraph and headings -->
+<h2>Headings and Text</h2>
+<p>This is a paragraph. Use <strong>strong</strong> for importance, <em>em</em> for emphasis.</p>
+
+<!-- Links -->
+<h2>Links</h2>
+<a href="https://example.com" target="_blank" rel="noopener noreferrer">External link</a>
+
+<!-- Images -->
+<h2>Images</h2>
+<img src="https://via.placeholder.com/150" alt="Placeholder image">
+
+<!-- Forms -->
+<h2>Forms</h2>
+<form id="demoForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <input type="submit" value="Submit">
+</form>
+
+<!-- Tables -->
+<h2>Tables</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Alice</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>30</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Lists -->
+<h2>Lists</h2>
+<ul>
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+</ul>
+
+<!-- ===============================
+JavaScript Task List Example
+================================= -->
+
+<h1>JavaScript Examples</h1>
+<p>This is a simple interactive todo list example demonstrating JS.</p>
+
+<input type="text" id="taskInput" placeholder="Enter task">
+<button id="addTaskBtn">Add Task</button>
+
+<ul id="taskList"></ul>
+
+</div> <!-- container -->
+
+<script>
+/* ===============================
+JAVASCRIPT EXAMPLES
+================================= */
+
+/* 1. Access elements */
+const taskInput = document.getElementById('taskInput'); // Input field
+const addTaskBtn = document.getElementById('addTaskBtn'); // Button
+const taskList = document.getElementById('taskList'); // UL list
+
+/* 2. Array to store tasks */
+let tasks = []; // Each task is {text: string, completed: bool}
+
+/* 3. Add task function */
+function addTask() {
+    const text = taskInput.value.trim(); // Remove whitespace
+    if(!text) return; // Do not allow empty tasks
+    const task = {text, completed:false}; // Create task object
+    tasks.push(task); // Add to array
+    renderTasks(); // Refresh UI
+    taskInput.value = ''; // Clear input
+}
+
+/* 4. Render tasks in UL */
+function renderTasks() {
+    taskList.innerHTML = ''; // Clear list
+    tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.className = 'task-item';
+        if(task.completed) li.classList.add('completed'); // Strike-through completed
+        li.textContent = task.text;
+
+        /* Buttons for each task */
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.className = 'task-buttons';
+
+        /* Complete toggle button */
+        const completeBtn = document.createElement('button');
+        completeBtn.textContent = task.completed ? 'Undo' : 'Complete';
+        completeBtn.onclick = () => {
+            tasks[index].completed = !tasks[index].completed;
+            renderTasks();
+        }
+
+        /* Delete button */
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.onclick = () => {
+            tasks.splice(index,1);
+            renderTasks();
+        }
+
+        buttonsDiv.appendChild(completeBtn);
+        buttonsDiv.appendChild(deleteBtn);
+
+        li.appendChild(buttonsDiv);
+        taskList.appendChild(li);
+    });
+}
+
+/* 5. Event listeners */
+addTaskBtn.addEventListener('click', addTask);
+taskInput.addEventListener('keypress', (e)=>{
+    if(e.key === 'Enter') addTask(); // Press Enter to add task
+});
+</script>
