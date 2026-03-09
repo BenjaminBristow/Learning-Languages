@@ -1,0 +1,5 @@
+git clone https:blahblah -> link found by clicking code in repo, clones repo down to local device
+
+git add . -> to track all files
+git commit -m "message" -> to add a commit message
+git push -> to send all tracked files of to github with the commit message attached

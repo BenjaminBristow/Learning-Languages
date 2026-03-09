@@ -1,0 +1,100 @@
+1. Initialize / Clone a Repository
+Start a new project locally:
+git init
+# Creates a new Git repository in the current directory
+Or start by cloning an existing remote repo:
+git clone https://github.com/user/repo.git
+# Copies the remote repository to your local machine
+Why: You need a repo first; either you create one or download one from GitHub.
+
+
+2. Configure Git (if first time)
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+Why: Every commit requires author info. Global config applies to all repos.
+
+
+3. Check Status and Track Files
+git status
+# Shows modified, staged, or untracked files
+
+git add file.txt
+# Adds specific file to staging area
+
+git add .
+# Adds all new/modified files
+Why:
+Staging area allows you to review exactly what will go into your next commit.
+Helps avoid accidentally committing incomplete changes.
+
+
+4. Commit Changes
+git commit -m "Descriptive commit message"
+Why:
+Commits snapshot your code.
+Each commit should be small, atomic, and descriptive.
+
+
+5. Branching (Optional, Recommended)
+git branch feature/login
+git checkout feature/login
+# Or combine: git checkout -b feature/login
+Why:
+Keeps main branch stable.
+Allows multiple features or bug fixes to be worked on in isolation.
+
+
+6. Make Changes, Stage, and Commit
+Edit files → git add ... → git commit -m "message"
+Repeat as often as needed.
+
+
+7. Pull Changes from Remote (If Collaborating)
+git pull origin main
+Why:
+Ensures your local branch is up-to-date with the remote before pushing.
+Reduces conflicts when multiple people work together.
+
+
+8. Push Changes to Remote
+git push -u origin feature/login
+# First push: -u sets upstream
+# Subsequent pushes: git push
+Why:
+Uploads commits to GitHub (or any remote).
+Others can now see, review, or merge your work.
+
+
+9. Merge / Pull Request
+If using GitHub: open a Pull Request (PR) from feature/login → main
+If local only:
+git checkout main
+git merge feature/login
+Why:
+Combines your feature branch into main.
+Resolves conflicts before code goes live.
+
+
+10. Optional Advanced Commands
+Undo / Amend a commit:
+git commit --amend -m "New message"
+git reset --soft HEAD~1   # Move HEAD back but keep changes staged
+git reset --hard HEAD~1   # Permanently discard last commit
+Stash work temporarily:
+git stash
+git stash apply
+git stash pop
+Rebase for cleaner history:
+git rebase main
+
+Typical Git Workflow Sequence Summary
+git init or git clone → start repo
+git config → set up author info
+git status → see changes
+git add → stage changes
+git commit → save snapshot
+git branch → create feature branch
+Make edits → git add → git commit → repeat
+git pull → update from remote
+git push → upload branch to GitHub
+git merge or Pull Request → integrate changes into main
