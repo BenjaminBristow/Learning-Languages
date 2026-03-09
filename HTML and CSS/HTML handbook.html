@@ -1,0 +1,198 @@
+<!--
+=======================================================================
+ADVANCED HTML HANDBOOK (CODE WITH COMMENTS)
+=======================================================================
+-->
+
+<!-- ===============================
+1. DOCUMENT STRUCTURE
+================================= -->
+<!DOCTYPE html> <!-- Defines HTML5 document type -->
+<html lang="en"> <!-- Root element, 'lang' improves accessibility and SEO -->
+<head>
+    <meta charset="UTF-8"> <!-- Defines character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Viewport meta tag makes page responsive on mobile devices -->
+    <title>Advanced HTML Handbook</title> <!-- Title shown in browser tab -->
+</head>
+<body>
+<!-- Page content goes here -->
+
+<!-- ===============================
+2. HEADINGS AND TEXT
+================================= -->
+<h1>Main Heading (Highest Importance)</h1> <!-- h1 should be used once per page -->
+<h2>Secondary Heading</h2>
+<h3>Subsection Heading</h3>
+<p>This is a paragraph of text.</p> <!-- Paragraph block -->
+<strong>This text is important</strong> <!-- Visually bold, conveys importance -->
+<em>This text is emphasized</em> <!-- Italic text, semantic emphasis -->
+<mark>Highlighted text</mark> <!-- Highlighted for emphasis -->
+<small>Fine print text</small> <!-- Smaller text for disclaimers, footnotes -->
+<blockquote cite="https://example.com/source">
+    This is a blockquote for quoting text from another source.
+</blockquote>
+<cite>— Source Name</cite> <!-- Citation for blockquote or reference -->
+<abbr title="HyperText Markup Language">HTML</abbr> <!-- Abbreviation with full meaning -->
+
+<!-- ===============================
+3. LINKS AND NAVIGATION
+================================= -->
+<!-- Anchor tag: links to other pages, sections, or external URLs -->
+<a href="index.html">Internal Link</a> <!-- Links to another page on your site -->
+<a href="#section2">Anchor Link</a> <!-- Jump to element with id="section2" -->
+<a href="https://example.com" target="_blank" rel="noopener noreferrer">External Link</a>
+<!-- target="_blank" opens link in a new tab -->
+<!-- rel="noopener noreferrer" is security best practice for external links -->
+
+<!-- ===============================
+4. IMAGES AND FIGURES
+================================= -->
+<img src="image.jpg" alt="Description of image" width="400">
+<!-- img displays an image -->
+<!-- alt text is required for accessibility -->
+<!-- width/height attributes can control size -->
+
+<figure>
+    <img src="photo.jpg" alt="Beautiful landscape">
+    <figcaption>Photo caption goes here</figcaption> <!-- Describes the image -->
+</figure>
+
+<!-- ===============================
+5. FORMS AND INPUTS
+================================= -->
+<form action="/submit" method="post">
+    <label for="name">Name:</label> <!-- Accessible label linked with input -->
+    <input type="text" id="name" name="name" required> <!-- Single-line input -->
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required> <!-- HTML5 email type -->
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select>
+
+    <input type="checkbox" id="subscribe" name="subscribe">
+    <label for="subscribe">Subscribe to newsletter</label>
+
+    <input type="submit" value="Submit"> <!-- Submit button sends form -->
+</form>
+
+<!-- ===============================
+6. TABLES
+================================= -->
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Name</th> <!-- Column header -->
+            <th scope="col">Age</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Alice</td> <!-- Table data -->
+            <td>25</td>
+            <td>alice@example.com</td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>30</td>
+            <td>bob@example.com</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- ===============================
+7. SEMANTIC STRUCTURE
+================================= -->
+<header>
+    <h1>Website Title</h1> <!-- Header section -->
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+</nav>
+
+<main>
+    <section>
+        <h2>Section Title</h2>
+        <p>Section content goes here.</p>
+    </section>
+
+    <article>
+        <h3>Article Title</h3>
+        <p>Article content...</p>
+    </article>
+
+    <aside>
+        <p>Sidebar content (related information)</p>
+    </aside>
+</main>
+
+<footer>
+    <p>Copyright 2026</p>
+</footer>
+
+<!-- ===============================
+8. EMBEDDED CONTENT
+================================= -->
+<iframe src="https://example.com" width="600" height="400">
+    Your browser does not support iframes.
+</iframe>
+
+<video controls width="400">
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<audio controls>
+    <source src="audio.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+</audio>
+
+<canvas id="myCanvas" width="400" height="200">
+    Fallback text if canvas is not supported.
+</canvas>
+
+<svg width="100" height="100">
+    <circle cx="50" cy="50" r="40" stroke="black" fill="red" />
+</svg>
+
+<progress value="70" max="100"></progress> <!-- Shows progress -->
+
+<meter value="0.7" min="0" max="1"></meter> <!-- Displays measurement -->
+
+<details>
+    <summary>More info</summary>
+    <p>Collapsible content inside details tag.</p>
+</details>
+
+<!-- ===============================
+9. ACCESSIBILITY BEST PRACTICES
+================================= -->
+<!-- Always provide alt text for images -->
+<!-- Use semantic elements instead of divs when possible -->
+<!-- Link labels should be descriptive -->
+<!-- Form labels should be connected to inputs via for/id -->
+<!-- ARIA attributes can enhance accessibility -->
+
+<!-- ===============================
+10. META TAGS FOR SEO
+================================= -->
+<meta name="description" content="Page description for SEO">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<meta name="author" content="Your Name">
+
+<!-- ===============================
+END OF HANDBOOK
+================================= -->
+</body>
+</html>

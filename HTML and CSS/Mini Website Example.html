@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Example Website</title>
+
+<style>
+
+/* =========================================
+   BASIC PAGE STYLING
+   ========================================= */
+
+body{
+
+font-family:Arial, sans-serif;
+
+margin:0;
+
+/*
+Browsers normally add margin around body.
+Setting to 0 removes it.
+*/
+
+background:#f4f4f4;
+
+}
+
+
+/* =========================================
+   NAVIGATION BAR
+   ========================================= */
+
+nav{
+
+background:#333;
+
+color:white;
+
+display:flex;
+
+/*
+Flexbox makes navigation easy to align.
+*/
+
+justify-content:space-between;
+
+/*
+Pushes items to opposite sides.
+*/
+
+padding:15px 40px;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+/*
+Removes default underline from links.
+*/
+
+margin-left:20px;
+
+}
+
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.hero{
+
+background:#3498db;
+
+color:white;
+
+text-align:center;
+
+padding:80px 20px;
+
+}
+
+/*
+Hero sections are large introduction sections
+commonly used at the top of websites.
+*/
+
+
+/* =========================================
+   CARD LAYOUT
+   ========================================= */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+/*
+Creates three equal columns.
+*/
+
+gap:30px;
+
+padding:40px;
+
+}
+
+.card{
+
+background:white;
+
+padding:20px;
+
+border-radius:10px;
+
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer{
+
+text-align:center;
+
+padding:20px;
+
+background:#222;
+
+color:white;
+
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media(max-width:800px){
+
+.cards{
+
+grid-template-columns:1fr;
+
+/*
+On smaller screens, stack cards vertically.
+*/
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ======================================
+     NAVIGATION
+     ====================================== -->
+
+<nav>
+
+<h2>MySite</h2>
+
+<div>
+
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+
+</div>
+
+</nav>
+
+
+<!-- ======================================
+     HERO SECTION
+     ====================================== -->
+
+<section class="hero">
+
+<h1>Welcome to My Website</h1>
+
+<p>This is a simple example website.</p>
+
+<button onclick="showMessage()">Click Me</button>
+
+</section>
+
+
+<!-- ======================================
+     CARD CONTENT
+     ====================================== -->
+
+<section class="cards">
+
+<div class="card">
+
+<h3>Feature One</h3>
+
+<p>Description of feature.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Feature Two</h3>
+
+<p>Description of feature.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Feature Three</h3>
+
+<p>Description of feature.</p>
+
+</div>
+
+</section>
+
+
+<!-- ======================================
+     FOOTER
+     ====================================== -->
+
+<footer>
+
+<p>Copyright 2026</p>
+
+</footer>
+
+
+<script>
+
+/* ======================================
+   JAVASCRIPT INTERACTION
+   ====================================== */
+
+function showMessage(){
+
+alert("You clicked the button!");
+
+}
+
+/*
+This function runs when the button is clicked.
+
+onclick="showMessage()"
+
+tells the browser to run this function.
+*/
+
+</script>
+
+</body>
+</html>

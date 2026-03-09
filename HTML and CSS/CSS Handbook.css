@@ -1,0 +1,667 @@
+/* =====================================================================
+   CSS HANDBOOK 
+   =====================================================================
+
+   This file is designed as a learning reference.
+
+   Every section explains:
+
+   - WHAT the CSS rule does
+   - WHY it is used
+   - HOW browsers interpret it
+
+   You can keep this file open while coding and search sections.
+
+   CSS syntax reminder:
+
+   selector {
+       property: value;
+   }
+
+   selector  → which HTML element(s) to style
+   property  → the visual feature being changed
+   value     → the setting applied to that property
+
+   Example:
+
+   p {
+       color: red;
+   }
+
+   Meaning:
+   All <p> elements will have red text.
+
+===================================================================== */
+
+
+/* =====================================================================
+   SECTION 1 — CSS SELECTORS
+   ===================================================================== */
+
+/*
+Selectors determine WHICH HTML elements the CSS applies to.
+Different selectors target elements in different ways.
+*/
+
+
+/* --------------------------------------------------
+   ELEMENT SELECTOR
+   -------------------------------------------------- */
+
+p {
+
+    color: blue;
+
+}
+
+/*
+p → selects ALL <p> elements on the page.
+
+color → changes the color of text inside the element.
+
+blue → the color value applied.
+
+Result:
+Every paragraph's text will appear blue.
+*/
+
+
+/* --------------------------------------------------
+   CLASS SELECTOR
+   -------------------------------------------------- */
+
+.box {
+
+    background-color: lightgray;
+
+}
+
+/*
+.box → selects elements with class="box"
+
+In HTML:
+
+<div class="box"></div>
+
+The dot (.) indicates a class selector.
+
+Classes can be reused on multiple elements.
+*/
+
+
+/* --------------------------------------------------
+   ID SELECTOR
+   -------------------------------------------------- */
+
+#header {
+
+    font-size: 40px;
+
+}
+
+/*
+#header → selects element with id="header"
+
+In HTML:
+
+<div id="header"></div>
+
+# indicates an ID selector.
+
+IDs should only appear ONCE per page.
+*/
+
+
+/* --------------------------------------------------
+   UNIVERSAL SELECTOR
+   -------------------------------------------------- */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+/*
+* selects ALL elements.
+
+Common use:
+Reset default browser spacing.
+
+Browsers add default margins to elements
+like <body> and <h1>.
+This removes them.
+*/
+
+
+/* =====================================================================
+   SECTION 2 — COLORS
+   ===================================================================== */
+
+/*
+CSS supports multiple color formats.
+
+Each method represents colors differently.
+*/
+
+
+.color-name {
+
+    color: red;
+
+}
+
+/*
+Using a named color.
+
+Easy to read but limited options.
+*/
+
+
+.color-rgb {
+
+    color: rgb(255, 0, 0);
+
+}
+
+/*
+RGB = Red Green Blue
+
+Each value ranges from 0–255.
+
+rgb(255,0,0)
+means full red, no green, no blue.
+*/
+
+
+.color-hex {
+
+    color: #ff0000;
+
+}
+
+/*
+HEX format.
+
+#ff0000
+
+ff = maximum red
+00 = no green
+00 = no blue
+*/
+
+
+.color-hsl {
+
+    color: hsl(0, 100%, 50%);
+
+}
+
+/*
+HSL = Hue Saturation Lightness
+
+Hue = color type
+Saturation = color intensity
+Lightness = brightness
+*/
+
+
+/* =====================================================================
+   SECTION 3 — TEXT STYLING
+   ===================================================================== */
+
+.text-style {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    /*
+    font-family controls the typeface used.
+
+    Multiple fonts are listed as fallbacks.
+
+    Browser will try them in order:
+    1. Arial
+    2. Helvetica
+    3. any sans-serif font
+    */
+
+
+    font-size: 18px;
+
+    /*
+    Controls the size of text.
+
+    px = pixels.
+
+    Other units exist like em, rem, and %.
+    */
+
+
+    font-weight: bold;
+
+    /*
+    Controls thickness of text.
+
+    Common values:
+
+    normal
+    bold
+    100–900 numeric scale
+    */
+
+
+    text-align: center;
+
+    /*
+    Controls horizontal alignment.
+
+    left
+    right
+    center
+    justify
+    */
+
+
+    line-height: 1.6;
+
+    /*
+    Controls vertical spacing between lines.
+
+    Larger values improve readability.
+    */
+
+
+    letter-spacing: 2px;
+
+    /*
+    Space between individual letters.
+    Often used in headings.
+    */
+
+
+    text-transform: uppercase;
+
+    /*
+    Automatically changes text case.
+
+    uppercase
+    lowercase
+    capitalize
+    */
+
+}
+
+
+/* =====================================================================
+   SECTION 4 — BOX MODEL
+   ===================================================================== */
+
+/*
+Every HTML element is a rectangular box.
+
+The box model consists of:
+
+margin
+border
+padding
+content
+*/
+
+.box {
+
+    width: 200px;
+
+    /*
+    Defines the horizontal size of the element.
+    */
+
+
+    height: 100px;
+
+    /*
+    Defines vertical size of element.
+    */
+
+
+    padding: 20px;
+
+    /*
+    Space INSIDE the element
+    between the content and border.
+    */
+
+
+    border: 3px solid black;
+
+    /*
+    border shorthand includes:
+
+    width
+    style
+    color
+    */
+
+
+    margin: 30px;
+
+    /*
+    Space OUTSIDE the element.
+    Controls distance from other elements.
+    */
+
+}
+
+
+/* =====================================================================
+   SECTION 5 — BACKGROUNDS
+   ===================================================================== */
+
+.background-example {
+
+    background-color: lightblue;
+
+    /*
+    Sets the background color
+    behind the element content.
+    */
+
+
+    background-image: url("image.jpg");
+
+    /*
+    Adds an image as the background.
+    */
+
+
+    background-repeat: no-repeat;
+
+    /*
+    Prevents image from repeating
+    across the element.
+    */
+
+
+    background-position: center;
+
+    /*
+    Controls where image appears.
+    */
+
+
+    background-size: cover;
+
+    /*
+    Expands image to fully cover element
+    while maintaining proportions.
+    */
+
+}
+
+
+/* =====================================================================
+   SECTION 6 — DISPLAY TYPES
+   ===================================================================== */
+
+.display-block {
+
+    display: block;
+
+}
+
+/*
+Block elements:
+
+• take full width
+• start on a new line
+
+Examples:
+div
+p
+section
+*/
+
+
+.display-inline {
+
+    display: inline;
+
+}
+
+/*
+Inline elements:
+
+• stay in the same line
+• only take needed width
+
+Examples:
+span
+a
+strong
+*/
+
+
+.display-inline-block {
+
+    display: inline-block;
+
+}
+
+/*
+Combines features of inline and block.
+
+Can set width/height
+but stays inline.
+*/
+
+
+.display-none {
+
+    display: none;
+
+}
+
+/*
+Element completely removed
+from visual layout.
+*/
+
+
+/* =====================================================================
+   SECTION 7 — FLEXBOX LAYOUT
+   ===================================================================== */
+
+.flex-container {
+
+    display: flex;
+
+    /*
+    Activates Flexbox layout system.
+
+    Child elements become flex items.
+    */
+
+
+    flex-direction: row;
+
+    /*
+    Defines main axis direction.
+
+    row = horizontal
+    column = vertical
+    */
+
+
+    justify-content: center;
+
+    /*
+    Aligns items horizontally
+    along main axis.
+    */
+
+
+    align-items: center;
+
+    /*
+    Aligns items vertically
+    along cross axis.
+    */
+
+
+    gap: 20px;
+
+    /*
+    Adds space between items.
+    */
+
+}
+
+
+/* =====================================================================
+   SECTION 8 — GRID LAYOUT
+   ===================================================================== */
+
+.grid-container {
+
+    display: grid;
+
+    /*
+    Activates CSS Grid layout.
+    */
+
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    /*
+    Creates 3 equal columns.
+
+    fr = fractional unit.
+    */
+
+
+    gap: 20px;
+
+    /*
+    Space between grid cells.
+    */
+
+}
+
+
+/* =====================================================================
+   SECTION 9 — POSITIONING
+   ===================================================================== */
+
+.relative-box {
+
+    position: relative;
+
+    /*
+    Element remains in normal layout
+    but can be moved with offsets.
+    */
+
+
+    top: 10px;
+
+    /*
+    Moves element 10px downward
+    from its original position.
+    */
+
+
+    left: 20px;
+
+    /*
+    Moves element 20px right.
+    */
+
+}
+
+
+.absolute-box {
+
+    position: absolute;
+
+}
+
+/*
+Absolute elements:
+
+• positioned relative to nearest positioned parent
+• removed from normal layout
+*/
+
+
+.fixed-box {
+
+    position: fixed;
+
+}
+
+/*
+Fixed elements stay in same position
+even when page scrolls.
+
+Example:
+navigation bars
+*/
+
+
+/* =====================================================================
+   SECTION 10 — TRANSITIONS
+   ===================================================================== */
+
+.button {
+
+    background-color: blue;
+
+    color: white;
+
+    transition: background-color 0.3s;
+
+    /*
+    Creates smooth animation
+    when background changes.
+    */
+
+}
+
+.button:hover {
+
+    background-color: red;
+
+}
+
+/*
+:hover triggers when mouse
+is placed over element.
+*/
+
+
+/* =====================================================================
+   SECTION 11 — RESPONSIVE DESIGN
+   ===================================================================== */
+
+@media (max-width: 768px) {
+
+    body {
+
+        font-size: 14px;
+
+    }
+
+}
+
+/*
+Media queries allow styles
+to change based on screen size.
+
+max-width:768px
+means styles apply when screen
+is 768px or smaller.
+
+Used for tablets and phones.
+*/
+

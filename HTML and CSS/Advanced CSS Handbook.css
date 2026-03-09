@@ -1,0 +1,585 @@
+/* ======================================================================
+   ADVANCED CSS HANDBOOK
+   Deep Reference Guide with Detailed Explanations
+   ======================================================================
+
+   This file is designed as a reference while learning CSS.
+
+   Structure of CSS rules:
+
+   selector {
+       property: value;
+   }
+
+   selector → determines which HTML elements are affected
+   property → what visual feature changes
+   value → how that feature behaves
+
+   Example:
+
+   p {
+       color: red;
+   }
+
+   Meaning:
+   All <p> elements will display red text.
+
+   ====================================================================== */
+
+
+/* ======================================================================
+   SECTION 1 — CSS VARIABLES (CUSTOM PROPERTIES)
+   ====================================================================== */
+
+/*
+CSS variables allow you to store reusable values.
+
+Benefits:
+• easier theme changes
+• cleaner code
+• centralized design system
+• easier maintenance
+
+Variables are declared inside :root for global use.
+*/
+
+:root {
+
+    --main-color: #3498db;
+
+    /*
+    --main-color is a custom variable.
+
+    The double dash (--) indicates a CSS variable.
+
+    This variable now stores a color value.
+    */
+
+    --main-padding: 20px;
+
+    /*
+    Storing spacing values is useful
+    for consistent layouts across a site.
+    */
+
+    --font-large: 32px;
+
+}
+
+/*
+Using variables
+*/
+
+.header {
+
+    color: var(--main-color);
+
+    /*
+    var() retrieves a CSS variable value.
+
+    Here it applies the stored color.
+    */
+
+    padding: var(--main-padding);
+
+}
+
+
+/* ======================================================================
+   SECTION 2 — PSEUDO CLASSES
+   ====================================================================== */
+
+/*
+Pseudo-classes style elements based on a condition.
+
+Examples:
+hover
+focus
+active
+nth-child
+first-child
+*/
+
+button:hover {
+
+    background-color: red;
+
+}
+
+/*
+:hover activates when the mouse cursor
+is placed over the element.
+
+Commonly used for:
+
+• buttons
+• links
+• navigation menus
+*/
+
+
+input:focus {
+
+    outline: 2px solid blue;
+
+}
+
+/*
+:focus triggers when a user clicks
+or tabs into an input field.
+
+Important for accessibility.
+*/
+
+
+li:first-child {
+
+    font-weight: bold;
+
+}
+
+/*
+:first-child selects the first element
+inside its parent container.
+*/
+
+
+li:last-child {
+
+    color: red;
+
+}
+
+/*
+:last-child selects the final element
+in a list or container.
+*/
+
+
+li:nth-child(2) {
+
+    color: blue;
+
+}
+
+/*
+:nth-child selects elements by position.
+
+Example:
+
+li:nth-child(2)
+means the second list item.
+*/
+
+
+/*
+Advanced nth-child usage
+*/
+
+li:nth-child(even) {
+
+    background-color: #eee;
+
+}
+
+li:nth-child(odd) {
+
+    background-color: #fff;
+
+}
+
+/*
+Commonly used in tables
+to create striped rows.
+*/
+
+
+/* ======================================================================
+   SECTION 3 — PSEUDO ELEMENTS
+   ====================================================================== */
+
+/*
+Pseudo-elements style specific parts of an element.
+
+Examples:
+::before
+::after
+::first-letter
+::first-line
+*/
+
+
+.title::before {
+
+    content: "★ ";
+
+}
+
+/*
+::before inserts content
+before the element's actual content.
+
+content property is required.
+
+Useful for:
+icons
+decorative elements
+UI markers
+*/
+
+
+.title::after {
+
+    content: " ★";
+
+}
+
+/*
+Adds content AFTER element text.
+*/
+
+
+p::first-letter {
+
+    font-size: 40px;
+
+    color: red;
+
+}
+
+/*
+Styles the first letter of a paragraph.
+
+Often used for decorative typography.
+*/
+
+
+/* ======================================================================
+   SECTION 4 — FLEXBOX (DETAILED GUIDE)
+   ====================================================================== */
+
+/*
+Flexbox is a layout system designed
+for one-dimensional layouts.
+
+Meaning:
+It handles layouts in either:
+
+row (horizontal)
+or
+column (vertical)
+
+Flexbox is ideal for:
+
+• navigation bars
+• aligning items
+• distributing space
+• responsive components
+*/
+
+.flex-container {
+
+    display: flex;
+
+    /*
+    This activates the Flexbox layout.
+
+    All direct children become flex items.
+    */
+
+
+    flex-direction: row;
+
+    /*
+    Defines the main axis direction.
+
+    row → horizontal layout
+    column → vertical layout
+    */
+
+
+    justify-content: center;
+
+    /*
+    Controls alignment along main axis.
+
+    Options:
+
+    flex-start
+    flex-end
+    center
+    space-between
+    space-around
+    space-evenly
+    */
+
+
+    align-items: center;
+
+    /*
+    Controls alignment along cross axis.
+
+    Cross axis is perpendicular
+    to the main axis.
+    */
+
+
+    gap: 20px;
+
+    /*
+    Creates space between flex items.
+
+    Much cleaner than using margins.
+    */
+
+}
+
+/*
+Flex item example
+*/
+
+.flex-item {
+
+    flex: 1;
+
+}
+
+/*
+flex: 1 means:
+
+The item grows to fill available space.
+
+Useful for equal-width layouts.
+*/
+
+
+/* ======================================================================
+   SECTION 5 — CSS GRID (DETAILED GUIDE)
+   ====================================================================== */
+
+/*
+CSS Grid is a two-dimensional layout system.
+
+Unlike Flexbox, Grid controls:
+
+rows AND columns simultaneously.
+
+Best used for:
+
+• page layouts
+• dashboards
+• image galleries
+• complex layouts
+*/
+
+.grid-container {
+
+    display: grid;
+
+    /*
+    Activates grid layout.
+    */
+
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    /*
+    Defines column structure.
+
+    1fr means 1 fractional unit
+    of available space.
+
+    Here we create 3 equal columns.
+    */
+
+
+    grid-template-rows: auto auto;
+
+    /*
+    Defines row heights.
+    */
+
+
+    gap: 20px;
+
+    /*
+    Adds spacing between grid cells.
+    */
+
+}
+
+/*
+Positioning items in grid
+*/
+
+.grid-item {
+
+    grid-column: span 2;
+
+}
+
+/*
+grid-column: span 2
+
+This element spans across 2 columns.
+*/
+
+
+/* ======================================================================
+   SECTION 6 — CSS ANIMATIONS
+   ====================================================================== */
+
+/*
+CSS animations allow elements
+to change styles over time.
+
+Two main components:
+
+1) @keyframes
+2) animation property
+*/
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+/*
+This animation transitions
+from invisible to visible.
+*/
+
+
+.box {
+
+    animation: fadeIn 2s ease-in-out;
+
+}
+
+/*
+animation properties include:
+
+duration
+timing function
+delay
+iteration count
+*/
+
+
+/* ======================================================================
+   SECTION 7 — TRANSFORMS
+   ====================================================================== */
+
+/*
+Transforms modify element position,
+size, or rotation without affecting layout.
+*/
+
+.transform-example {
+
+    transform: rotate(45deg);
+
+}
+
+/*
+Rotates element 45 degrees.
+*/
+
+
+.scale-example {
+
+    transform: scale(1.5);
+
+}
+
+/*
+Increases element size by 150%.
+*/
+
+
+.translate-example {
+
+    transform: translate(50px, 20px);
+
+}
+
+/*
+Moves element:
+
+50px right
+20px down
+*/
+
+
+/* ======================================================================
+   SECTION 8 — ADVANCED RESPONSIVE DESIGN
+   ====================================================================== */
+
+/*
+Media queries adapt layout
+to different screen sizes.
+*/
+
+@media (max-width: 1024px) {
+
+    .container {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+/*
+When screen is smaller than 1024px,
+grid switches to 2 columns.
+*/
+
+
+@media (max-width: 600px) {
+
+    .container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/*
+Mobile layout:
+single column design.
+*/
+
+
+/* ======================================================================
+   SECTION 9 — COMMON WEBSITE LAYOUT PATTERN
+   ====================================================================== */
+
+.layout {
+
+    display: grid;
+
+    grid-template-columns: 200px 1fr;
+
+}
+
+/*
+Typical layout:
+
+Sidebar (fixed width)
+Main content (flexible)
+*/
+
+
